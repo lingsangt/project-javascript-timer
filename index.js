@@ -38,12 +38,18 @@ class Timer {
     */
     tick = () => {
         
-        /*
-        This is equivalent to:
-        const timeRemaining = this.timeRemaining; //Uses getter method to get remaining time
-        this.timeRemaining = timeRemaining -1; //Uses setter method to update time
-        */
-        this.timeRemaining = this.timeRemaining -1;
+        if (this.timeRemaining < 0){
+            this.pause ();
+        }
+        else {
+            /*
+            This is equivalent to:
+            const timeRemaining = this.timeRemaining; //Uses getter method to get remaining time
+            this.timeRemaining = timeRemaining -1; //Uses setter method to update time
+            */
+            this.timeRemaining = this.timeRemaining -1;
+        }
+
 
     }
 
