@@ -8,6 +8,9 @@ class Timer {
         //this invokes start method
         this.startButton.addEventListener('click', this.start);
         this.pauseButton.addEventListener ('click', this.pause);
+
+        //Initialize a timer with a default value of, say, 30 seconds
+        this.timeLeft = 30;
     }
 
 
@@ -37,6 +40,14 @@ class Timer {
     use arrow function so using 'this' inside the function refers to the same instance of the class.
     */
     tick = () => {
+
+        /*
+        For each tick, we want something like this:
+        timeRemaining = timeRemaining -1;
+        */
+        this.timeLeft = this.timeLeft -1;
+        this.durationInput.value = this.timeLeft;
+
         console.log ('tick');
     }
 
