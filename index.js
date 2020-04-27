@@ -1,18 +1,26 @@
 class Timer {
     constructor(durationInput, startButton, pauseButton) {
-      this.durationInput = durationInput;
-      this.startButton = startButton;
-      this.pauseButton = pauseButton;
-  
-      //this invokes start method
-      this.startButton.addEventListener('click', this.start);
+        //console.log (this)
+        this.durationInput = durationInput;
+        this.startButton = startButton;
+        this.pauseButton = pauseButton;
+    
+        //this invokes start method
+        this.startButton.addEventListener('click', this.start);
     }
   
-    //equivalent to start: function ()
-    start() {
+    /*
+    Babel shows that this function will be executed inside of the constructor.
+    */
+    start =() => {
         console.log('Time to start the timer!');
 
         //We want the keyword 'this' here to equal to the 'this' in the addEventListener
+        /*
+        Because this is an arrow function and this code is executed as if it were inside the constructor, 
+        the keyword 'this' would be equivalent to 'this' console.log(this)' line in comments in the constructor,
+        which is equal to the instance of the class because it's the constructor function.
+        */
         this.importantMethodToCall();
     }
 
@@ -28,7 +36,7 @@ class Timer {
   
   const timer = new Timer(durationInput, startButton, pauseButton);
   
-  /*
+/*
 Note: If we called timer.start () directly, this creates a different instance than 
 when the button is clicked. 
 
@@ -51,4 +59,5 @@ All other classes
 'this' is equal to whatever is to the left of the '.' in the method call.
 
 
+Tip if you want the details on what exactly is executed: Place code into babeljs.io
   */
