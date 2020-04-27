@@ -7,8 +7,10 @@ class Timer {
     
         //this invokes start method
         this.startButton.addEventListener('click', this.start);
+        this.pauseButton.addEventListener ('click', this.pause);
     }
-  
+
+
     /*
     Babel shows that this function will be executed inside of the constructor,
     use arrow function so using 'this' inside the function refers to the same instance of the class.
@@ -19,19 +21,15 @@ class Timer {
         this.tick ();
 
         //run tick every second, starting 1 second after the user clicks the button
-        setInterval (this.tick, 1000);
+        this.interval = setInterval (this.tick, 1000);
 
-        /*
-        note that setInterval returns an integer. If you want to stop it, you can 
-        const timer = setInterval (this.tick, 1000);
-        clearInterval (timer);
-
-        we use this idea for the pause method, but we would need the 'timer' variable to carry over 
-        to the pause method, so we use 'this.timer' instead.
-        */
     }
     pause = () => {
-        clearInterval ();
+
+        /*
+        note that setInterval returns an integer. If you want to stop it, you run clearInterval
+        */
+        clearInterval (this.interval);
     }
 
 
