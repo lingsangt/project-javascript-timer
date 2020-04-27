@@ -29,5 +29,5 @@ You can check this by adding the line console.log (this) and checking the printo
 in the console. 
 
 You have to have a much better understanding of what the keyword 'this' inside the 
-function start(). 
+function start(), versus the 'this' inside the addEventListener.  
   */
