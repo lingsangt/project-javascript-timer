@@ -10,23 +10,27 @@ class Timer {
     }
   
     /*
-    Babel shows that this function will be executed inside of the constructor.
+    Babel shows that this function will be executed inside of the constructor,
+    use arrow function so using 'this' inside the function refers to the same instance of the class.
     */
     start =() => {
-        console.log('Time to start the timer!');
 
-        //We want the keyword 'this' here to equal to the 'this' in the addEventListener
+        //run tick every second
         /*
-        Because this is an arrow function and this code is executed as if it were inside the constructor, 
-        the keyword 'this' would be equivalent to 'this' console.log(this)' line in comments in the constructor,
-        which is equal to the instance of the class because it's the constructor function.
+        When we run this as is, 'tick' is logged to the console every second.
+        Note: If 'this' is removed here, we get an error 'tick is not defined at 
+        HTMLButtonElement.start. 
         */
-        this.importantMethodToCall();
+        setInterval (this.tick, 1000);
     }
 
-    importantMethodToCall (){
-        console.log ('Important thing was done');
+    /*tick is called inside the start function, so
+    use arrow function so using 'this' inside the function refers to the same instance of the class.
+    */
+    tick = () => {
+        console.log ('tick');
     }
+
 
   }
   
