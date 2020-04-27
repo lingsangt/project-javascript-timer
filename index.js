@@ -6,20 +6,26 @@ class Timer {
         this.pauseButton = pauseButton;
     
         //this invokes start method
-        this.startButton.addEventListener('click', this.start);
+        /*
+        Note: This method of using bind to fix the 'this' is an old method, so we won't use it again.
+
+        bind returns a new function that we can call at some point in the future, (when user clicks button), 
+        so calling bind doesn't run start away.
+
+        Now, because the 'this' is the first argument passed into bind, the value of 'this' is 
+        inside the start function, and because it's in the constructor, it's equal to the instance of the class.
+        */
+        this.startButton.addEventListener('click', this.start.bind (this));
     }
   
     /*
     Babel shows that this function will be executed inside of the constructor.
     */
-    start =() => {
+    start () {
         console.log('Time to start the timer!');
 
         //We want the keyword 'this' here to equal to the 'this' in the addEventListener
         /*
-        Because this is an arrow function and this code is executed as if it were inside the constructor, 
-        the keyword 'this' would be equivalent to 'this' console.log(this)' line in comments in the constructor,
-        which is equal to the instance of the class because it's the constructor function.
         */
         this.importantMethodToCall();
     }
