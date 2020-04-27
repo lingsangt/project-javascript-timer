@@ -8,9 +8,6 @@ class Timer {
         //this invokes start method
         this.startButton.addEventListener('click', this.start);
         this.pauseButton.addEventListener ('click', this.pause);
-
-        //Initialize a timer with a default value of, say, 30 seconds
-        this.timeLeft = 30;
     }
 
 
@@ -40,15 +37,13 @@ class Timer {
     use arrow function so using 'this' inside the function refers to the same instance of the class.
     */
     tick = () => {
-
+        
         /*
-        For each tick, we want something like this:
-        timeRemaining = timeRemaining -1;
-        */
-        this.timeLeft = this.timeLeft -1;
-        this.durationInput.value = this.timeLeft;
 
-        console.log ('tick');
+        */
+        const timeRemaining = parseFloat (this.durationInput.value);
+        this.durationInput.value = timeRemaining -1;
+
     }
 
 
@@ -61,7 +56,10 @@ class Timer {
   const timer = new Timer(durationInput, startButton, pauseButton);
   
 /*
-Note: If we called timer.start () directly, this creates a different instance than 
+Part 1: The timer starts, pauses, and responds to user changing time duration. The data is stored in DOM elements.
+
+
+Note on 'this': If we called timer.start () directly, this creates a different instance than 
 when the button is clicked. 
 
 You can check this by adding the line console.log (this) and checking the printouts
@@ -84,4 +82,13 @@ All other classes
 
 
 Tip if you want the details on what exactly is executed: Place code into babeljs.io
-  */
+
+
+Note on timer option #2: Current time sits in input element. 
+This is known as storing our data inside DOM. Our application has some critical data that is required to 
+make it work correctly and we are storing that data inside of different DOM elements. 
+(Option #1 was storing all of our data inside of the javascript code. It is more popular these days.). 
+Option #2 makes it easier when actually implementing responding to user activity. 
+We are going with option #2 this time just so we can see the downsides. 
+
+*/
