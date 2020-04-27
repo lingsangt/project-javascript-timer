@@ -38,17 +38,20 @@ class Timer {
     */
     tick = () => {
         
-        //
-        const timeRemaining = parseFloat (this.durationInput.value);
-        this.durationInput.value = timeRemaining -1;
+        /*
+        This is equivalent to:
+        const timeRemaining = this.timeRemaining; //Uses getter method to get remaining time
+        this.timeRemaining = timeRemaining -1; //Uses setter method to update time
+        */
+        this.timeRemaining = this.timeRemaining -1;
 
     }
 
-    getTime (){
+    get timeRemaining (){
         return parseFloat (this.durationInput.value);
     }
 
-    setTime (time){
+    set timeRemaining (time){
         this.durationInput.value = time;
     }
 
