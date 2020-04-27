@@ -15,14 +15,25 @@ class Timer {
     */
     start =() => {
 
-        //run tick every second
-        /*
-        When we run this as is, 'tick' is logged to the console every second.
-        Note: If 'this' is removed here, we get an error 'tick is not defined at 
-        HTMLButtonElement.start. 
-        */
+        //we want tick to be called the first time immediately the user clicks the button
+        this.tick ();
+
+        //run tick every second, starting 1 second after the user clicks the button
         setInterval (this.tick, 1000);
+
+        /*
+        note that setInterval returns an integer. If you want to stop it, you can 
+        const timer = setInterval (this.tick, 1000);
+        clearInterval (timer);
+
+        we use this idea for the pause method, but we would need the 'timer' variable to carry over 
+        to the pause method, so we use 'this.timer' instead.
+        */
     }
+    pause = () => {
+        clearInterval ();
+    }
+
 
     /*tick is called inside the start function, so
     use arrow function so using 'this' inside the function refers to the same instance of the class.
