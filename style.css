@@ -1,0 +1,11 @@
+/*timer includes everything: start button, pause button, duration input, and the circle dial*/
+.timer {
+    position: relative;
+    display: inline-block;
+}
+
+/*dial is the circle border dial*/
+.dial {
+    height:400px;
+    width: 400px;
+}

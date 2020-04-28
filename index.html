@@ -8,36 +8,40 @@
   </head>
   <body>
     
-    <!--This gives a black circle
-        SVG is a box with coordinates (pixels from the left, pixels from the top)
-        fill: you can set a border color
-        stroke: border color
-        stroke-width: border width
-        stroke-dasharray: length of dash around border of circle, 
-        with syntax "<length of dash> <length of space between dashes>". If no length
-            of space between dashes is specified, then it's just equal to the length of dash.
-        stroke-dashoffset: The location along an SVG path where the dash of a stroke begins. 
-            Positive for counterclockwise direction, negative for clockwise direction.
-        transform: (Note that the "counting" starts at the right of the circle, whereas we want
-            it to start at the top, so we need to rotate the circle.)
-            rotate (<degrees to rotate, with positive clockwise direction and negative counterclockwise direction> <x-coord of origin of transform point> <y-coord of origin of transform point>)
-    -->>
-    <svg height="400" width="400">
-        <circle 
-            r="190" 
-            cx="200" 
-            cy="200" 
-            fill="transparent" 
-            stroke="blue"
-            stroke-width="15"
-            transform= "rotate(-90 200 200)"
-        />
-    </svg>
+    <div class = "timer">
 
-    <!--Note that HTML attributes, like value, always have to be a string. It will be converted into a number in the tick function. -->
-    <input id="duration" value="30"/> 
-    <button id="start"><i class="fas fa-play"></i></button>
-    <button id="pause"><i class="fas fa-pause"></i></button>
+    
+        <!--This gives a black circle
+            SVG is a box with coordinates (pixels from the left, pixels from the top)
+            fill: you can set a border color
+            stroke: border color
+            stroke-width: border width
+            stroke-dasharray: length of dash around border of circle, 
+            with syntax "<length of dash> <length of space between dashes>". If no length
+                of space between dashes is specified, then it's just equal to the length of dash.
+            stroke-dashoffset: The location along an SVG path where the dash of a stroke begins. 
+                Positive for counterclockwise direction, negative for clockwise direction.
+            transform: (Note that the "counting" starts at the right of the circle, whereas we want
+                it to start at the top, so we need to rotate the circle.)
+                rotate (<degrees to rotate, with positive clockwise direction and negative counterclockwise direction> <x-coord of origin of transform point> <y-coord of origin of transform point>)
+        -->>
+        <svg class = "dial">
+            <circle 
+                r="190" 
+                cx="200" 
+                cy="200" 
+                fill="transparent" 
+                stroke="blue"
+                stroke-width="15"
+                transform= "rotate(-90 200 200)"
+            />
+        </svg>
+
+        <!--Note that HTML attributes, like value, always have to be a string. It will be converted into a number in the tick function. -->
+        <input id="duration" value="30"/> 
+        <button id="start"><i class="fas fa-play"></i></button>
+        <button id="pause"><i class="fas fa-pause"></i></button>
+    </div>
     <script src="timer.js"></script>
     <script src="index.js"></script>
   </body>
