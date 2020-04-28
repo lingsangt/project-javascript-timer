@@ -21,6 +21,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+
+}
+
+/*Controls = duration input, play button, and pause button*/
+.controls {
     position: absolute;
     top: 0;
     left: 0;
