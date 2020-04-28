@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+      />
+  </head>
   <body>
     
     <!--This gives a black circle
@@ -31,8 +36,8 @@
 
     <!--Note that HTML attributes, like value, always have to be a string. It will be converted into a number in the tick function. -->
     <input id="duration" value="30"/> 
-    <button id="start">Start</button>
-    <button id="pause">Pause</button>
+    <button id="start"><i class="fas fa-play"></i></button>
+    <button id="pause"><i class="fas fa-pause"></i></button>
     <script src="timer.js"></script>
     <script src="index.js"></script>
   </body>

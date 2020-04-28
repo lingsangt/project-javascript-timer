@@ -1,6 +1,5 @@
 class Timer {
     constructor(durationInput, startButton, pauseButton, callbacks) {
-        //console.log (this)
         this.durationInput = durationInput;
         this.startButton = startButton;
         this.pauseButton = pauseButton;
@@ -30,14 +29,14 @@ class Timer {
 
         //Again, it is a good idea to check to make sure onStart was initialized in the constructor before using it.
         if (this.onStart) {
-            this.onStart;
+            this.onStart(this.timeRemaining);
         }
 
         //we want tick to be called the first time immediately the user clicks the button
         this.tick();
 
         //run tick every second, starting 1 second after the user clicks the button
-        this.interval = setInterval(this.tick, 1000);
+        this.interval = setInterval(this.tick, 20);
 
     }
     pause = () => {
@@ -58,17 +57,15 @@ class Timer {
         if (this.timeRemaining <= 0) {
 
             this.pause();
-            this.onComplete();
+            if (this.onComplete){
+                this.onComplete();
+            }
+            
         }
         else {
-            /*
-            This is equivalent to:
-            const timeRemaining = this.timeRemaining; //Uses getter method to get remaining time
-            this.timeRemaining = timeRemaining -1; //Uses setter method to update time
-            */
-            this.timeRemaining = this.timeRemaining - 1;
+            this.timeRemaining = this.timeRemaining - 0.2;
             if (this.onTick) {
-                this.onTick();
+                this.onTick(this.timeRemaining);
             }
         }
 
@@ -80,7 +77,7 @@ class Timer {
     }
 
     set timeRemaining(time) {
-        this.durationInput.value = time;
+        this.durationInput.value = time.toFixed (2);
     }
 
 }
