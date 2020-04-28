@@ -1,12 +1,14 @@
 /*timer includes everything: start button, pause button, duration input, and the circle dial*/
+
 .timer {
     position: relative;
     display: inline-block;
 }
 
 /*dial is the circle border dial*/
+
 .dial {
-    height:400px;
+    height: 400px;
     width: 400px;
 }
 
@@ -14,8 +16,29 @@
     font: inherit;
 }
 
-
 body {
-    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
-      'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+.timer input {
+    display: block;
+    border: none;
+    width: 240px;
+    font-size: 90px;
+    text-align: center;
+}
+
+.timer input:focus {
+    outline: none;
+}
+
+.timer button {
+    border: none;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.timer button:focus {
+    outline: none;
+}
+
